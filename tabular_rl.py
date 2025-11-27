@@ -52,7 +52,7 @@ def q_learning(env, alpha, gamma, epsilon, episodes):
             # Q-learning update (off-policy)
 
             ########################
-            # Your code here
+            # TODO: Exercise 3 (1)
             ########################
 
             state = next_state

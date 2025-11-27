@@ -23,9 +23,27 @@ def compute_action_values(env, state, V, gamma):
     n_actions = env.action_space.n
     action_values = np.zeros(n_actions)
     
-    ########################
-    # Your code here
-    ########################
+    for a in range(n_actions):
+        for prob, next_state, reward, done in env.unwrapped.P[state][a]:
+
+            ################################
+            # TODO: Exercise 2 (5(a)- 5(c)):
+            # Modify reward (r) to 
+            # reward_prime (r^'), and use
+            # the modified reward
+            # in the Bellman update
+            ################################
+            reward_prime = None
+            ################################
+
+
+            ################################
+            # TODO: Exercise 2 (1):
+            # Replace pass below with
+            # the Bellman update
+            # equation for action_values
+            ################################
+            pass
 
     return action_values
 
@@ -42,7 +60,7 @@ def value_iteration(env, max_iterations, gamma, theta):
     # Value Iteration
     
     ########################
-    # Your code here
+    # TODO: Exercise 2 (2)
     ########################
 
     # Derive policy from optimal value function
@@ -71,7 +89,7 @@ def policy_iteration(env, max_iterations, gamma, theta):
     # Policy Iteration
 
     ########################
-    # Your code here
+    # TODO: Exercise 2 (2)
     ########################
 
     print("\nOptimal Policy (one-hot):")
@@ -93,13 +111,17 @@ def play(env, policy, episodes=100):
             total_rewards += reward
             done = terminated or truncated
 
-    print(f"\nAverage success rate over {episodes} episodes: {total_rewards / episodes:.2f}\n")
+    print(f"\nAverage reward over {episodes} episodes: {total_rewards / episodes:.2f}\n")
 
 
 if __name__ == '__main__':
     # Create environments for training and evaluation
     map_name = "4x4" # or "8x8"
-    slippery = True # `False` for deterministic, `True` for stochastic transitions
+
+    ########################
+    # TODO: Exercise 2 (4)
+    ########################
+    slippery = False # `False` for deterministic, `True` for stochastic transitions
     train_env = create_env(map_name, slippery, render=False)
     eval_env = create_env(map_name, slippery, render=True) # set `render` to True to visualize
 
