@@ -27,7 +27,7 @@ def compute_action_values(env, state, V, gamma):
         for prob, next_state, reward, done in env.unwrapped.P[state][a]:
 
             ################################
-            # TODO: Exercise 2 (5(a)- 5(c)):
+            # TODO: Exercise 1 (4(a)- 4(c)):
             # Modify reward (r) to 
             # reward_prime (r^'), and use
             # the modified reward
@@ -38,7 +38,7 @@ def compute_action_values(env, state, V, gamma):
 
 
             ################################
-            # TODO: Exercise 2 (1):
+            # TODO: Exercise 1 (1):
             # Replace pass below with
             # the Bellman update
             # equation for action_values
@@ -60,7 +60,7 @@ def value_iteration(env, max_iterations, gamma, theta):
     # Value Iteration
     
     ########################
-    # TODO: Exercise 2 (2)
+    # TODO: Exercise 1 (2)
     ########################
 
     # Derive policy from optimal value function
@@ -88,9 +88,81 @@ def policy_iteration(env, max_iterations, gamma, theta):
 
     # Policy Iteration
 
-    ########################
-    # TODO: Exercise 2 (2)
-    ########################
+    ################################
+    # NOTE: Exercise 1 (2):
+    # Fill in your code within the 
+    # block highlighted with dashes
+    # ------------------
+
+    # ------------------
+    ################################
+    for i in range(max_iterations):
+    
+        # --- Policy Evaluation (BEGIN) ---
+        while True:
+            delta = 0
+
+            ################################
+            # TODO Exercise 1 (2):
+            #
+            # Update V
+            # using Bellman update
+            # taking action_prob into account
+
+            # Remember:
+            # prob, next_state, reward, done can be obtained from
+            # env.unwrapped.P[s][a]
+            # ------------------------------
+            
+            # ------------------------------
+            
+            # stop at convergence
+            if delta < theta:
+                break
+
+            # --- Policy Evaluation (END) ---
+
+
+        # --- Policy Improvement (BEGIN) ---
+        policy_converged = True
+        for s in range(n_states):
+            ################################
+            # TODO Exercise 1 (2):
+            #
+            # i. Get action from old policy
+            # ii. Compute action values
+            # iii. Recompute best action from 
+            # action values
+            # ------------------------------
+            
+
+            # ------------------------------
+
+
+            ################################
+            #TODO  Exercise 1 (2): 
+            # Greedy policy update
+            # Set policy at current state to 
+            # best action
+            # ------------------------------
+            policy[s] = None # MODIFY
+            # ------------------------------
+
+
+            ################################
+            # TODO Exercise 1 (2):
+            
+            # Set policy_converged to False if 
+            # action from old policy (i) and 
+            # best action (iii) differ
+            # ------------------------------
+            
+            # ------------------------------
+
+        if policy_converged:
+            print(f"Policy iteration converged at iteration {i+1}.")
+            break
+        # --- Policy Improvement (END) ---
 
     print("\nOptimal Policy (one-hot):")
     print(policy)
@@ -119,7 +191,7 @@ if __name__ == '__main__':
     map_name = "4x4" # or "8x8"
 
     ########################
-    # TODO: Exercise 2 (4)
+    # TODO: Exercise 1 (3)
     ########################
     slippery = False # `False` for deterministic, `True` for stochastic transitions
     train_env = create_env(map_name, slippery, render=False)
