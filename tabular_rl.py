@@ -141,28 +141,28 @@ if __name__ == '__main__':
     parser.add_argument(
         '--alpha',
         type=float,
-        default=0.8,
+        default=0.2,
         help='Learning rate'
     )
 
     parser.add_argument(
         '--gamma',
         type=float,
-        default=0.95,
+        default=0.9,
         help='Discount factor'
     )
 
     parser.add_argument(
         '--epsilon',
         type=float,
-        default=0.3,
+        default=0.6,
         help='Exploration factor. Must lie within the open interval: (0, 1)'
     )
 
     parser.add_argument(
         '--episodes',
         type=int,
-        default=3500,
+        default=800,
         help='Number of training episodes'
     )
 
