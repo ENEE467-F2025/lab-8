@@ -1,4 +1,4 @@
-# ENEE 467 Fall 2025: Robotics Project Laboratory
+# ENEE 467 Fall 2026: Robotics Project Laboratory
 
 ## Lab 8: Dynamic Programming and Tabular Reinforcement Learning
 
